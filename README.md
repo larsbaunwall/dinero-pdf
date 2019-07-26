@@ -12,6 +12,9 @@ For at installere udvidelsen åbner du blot `./Send til Dinero.workflow` i Autom
 
 Du kan også installere udvidelsen manuelt ved blot at kopiere filen ind i mappen `~/Library/PDF Services`
 
+Woila! Nu kan du printe og uploade PDF'er til dinero helt enkelt! Hvis du ka li' hvad du ser, så smid en :star: eller :star::star:
+
 # Forslag eller kommentarer?
 
 Bare opret et issue eller send mig en pull-request med dit forslag :)
+
