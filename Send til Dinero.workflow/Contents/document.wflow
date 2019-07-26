@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>444.42</string>
+	<key>AMApplicationVersion</key>
+	<string>2.9</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Start AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>on run {input, parameters}	set customDate to currentDate()	set mail_subject to customDate &amp; " kvittering"	set file_name to customDate &amp; "-kvittering.pdf"
+	set mail_adr to "[email]" -- Indsæt din dinero forward adresse her		tell application "Microsoft Outlook"		set newMessage to make new outgoing message with properties {subject:mail_subject, plain text content:"Kvittering", content:"Receipt attached"}		tell newMessage			make new recipient with properties {email address:{address:mail_adr}}			make new attachment with properties {file:input}			send		end tell		activate	end tell	end runon zero_pad(value, string_length)	set string_zeroes to ""	set digits_to_pad to string_length - (length of (value as string))	if digits_to_pad &gt; 0 then		repeat digits_to_pad times			set string_zeroes to string_zeroes &amp; "0" as string		end repeat	end if	set padded_value to string_zeroes &amp; value as string	return padded_valueend zero_padon currentDate()	set now to (current date)		set result to (year of now as integer) as string	set result to result &amp; "-"	set result to result &amp; zero_pad(month of now as integer, 2)	set result to result &amp; "-"	set result to result &amp; zero_pad(day of now as integer, 2)	set result to result &amp; " "	set result to result &amp; zero_pad(hours of now as integer, 2)	set result to result &amp; ":"	set result to result &amp; zero_pad(minutes of now as integer, 2)	set result to result &amp; ":"	set result to result &amp; zero_pad(seconds of now as integer, 2)		return resultend currentDate</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>711E4250-3E22-48FD-833B-FD351EAD23E4</string>
+				<key>Keywords</key>
+				<array>
+					<string>Start</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>C8289E6B-2F89-4FDC-AA43-5A222544F702</string>
+				<key>ShowWhenRun</key>
+				<false/>
+				<key>UUID</key>
+				<string>2FB5C30C-7AC2-45FB-A75E-093F11DFBCF2</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>541.000000:652.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array/>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>message</key>
+					<dict>
+						<key>tokenizedValue</key>
+						<array>
+							<string>Filen er uploadet til dinero</string>
+						</array>
+					</dict>
+					<key>subtitle</key>
+					<dict/>
+					<key>title</key>
+					<dict>
+						<key>tokenizedValue</key>
+						<array>
+							<string>PDF sendt til dinero</string>
+						</array>
+					</dict>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array/>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Display Notification.action</string>
+				<key>ActionName</key>
+				<string>Vis meddelelse</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>message</key>
+					<string>Filen er uploadet til dinero</string>
+					<key>subtitle</key>
+					<string></string>
+					<key>title</key>
+					<string>PDF sendt til dinero</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.Display-Notification</string>
+				<key>CFBundleVersion</key>
+				<string>1.0</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<true/>
+				<key>CanShowWhenRun</key>
+				<false/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>AMDisplayNotificationAction</string>
+				<key>InputUUID</key>
+				<string>485C85A5-9057-4E9F-BDDD-0DB390EC5828</string>
+				<key>Keywords</key>
+				<array/>
+				<key>OutputUUID</key>
+				<string>B9EFFD07-DEBA-4CA1-9B9E-C29FF430D76D</string>
+				<key>UUID</key>
+				<string>D50E2285-B31D-4796-B300-CF5E4B7D8084</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>subtitle</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>title</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>message</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>541.000000:841.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Display Notification.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict>
+		<key>89BC22A4-672B-4426-B170-3E7B2B097642</key>
+		<dict>
+			<key>from</key>
+			<string>2FB5C30C-7AC2-45FB-A75E-093F11DFBCF2 - 2FB5C30C-7AC2-45FB-A75E-093F11DFBCF2</string>
+			<key>to</key>
+			<string>D50E2285-B31D-4796-B300-CF5E4B7D8084 - D50E2285-B31D-4796-B300-CF5E4B7D8084</string>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<array>
+		<dict>
+			<key>UUID</key>
+			<string>992E5BD6-DDA0-4EFD-8117-D27DEEB3DC2C</string>
+			<key>identifier</key>
+			<string>com.apple.Automator.Variable.CurrentTime</string>
+			<key>name</key>
+			<string>Aktuelt tidspunkt</string>
+			<key>value</key>
+			<string>HH.mm</string>
+		</dict>
+	</array>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.printPlugin</string>
+	</dict>
+</dict>
+</plist>
