@@ -51,8 +51,55 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	set customDate to currentDate()	set mail_subject to customDate &amp; " kvittering"	set file_name to customDate &amp; "-kvittering.pdf"
-	set mail_adr to "[email]" -- Indsæt din dinero forward adresse her		tell application "Microsoft Outlook"		set newMessage to make new outgoing message with properties {subject:mail_subject, plain text content:"Kvittering", content:"Receipt attached"}		tell newMessage			make new recipient with properties {email address:{address:mail_adr}}			make new attachment with properties {file:input}			send		end tell		activate	end tell	end runon zero_pad(value, string_length)	set string_zeroes to ""	set digits_to_pad to string_length - (length of (value as string))	if digits_to_pad &gt; 0 then		repeat digits_to_pad times			set string_zeroes to string_zeroes &amp; "0" as string		end repeat	end if	set padded_value to string_zeroes &amp; value as string	return padded_valueend zero_padon currentDate()	set now to (current date)		set result to (year of now as integer) as string	set result to result &amp; "-"	set result to result &amp; zero_pad(month of now as integer, 2)	set result to result &amp; "-"	set result to result &amp; zero_pad(day of now as integer, 2)	set result to result &amp; " "	set result to result &amp; zero_pad(hours of now as integer, 2)	set result to result &amp; ":"	set result to result &amp; zero_pad(minutes of now as integer, 2)	set result to result &amp; ":"	set result to result &amp; zero_pad(seconds of now as integer, 2)		return resultend currentDate</string>
+					<string>
+on run {input, parameters}
+	set customDate to currentDate()
+	set mail_subject to customDate &amp; " kvittering"
+	set file_name to customDate &amp; "-kvittering.pdf"
+	
+	set mail_adr to "[email]" -- Indsæt din dinero forward adresse her
+	
+	tell application "Microsoft Outlook"
+		set newMessage to make new outgoing message with properties {subject:mail_subject, plain text content:"Kvittering", content:"Receipt attached"}
+		tell newMessage
+			make new recipient with properties {email address:{address:mail_adr}}
+			make new attachment with properties {file:input}
+			send
+		end tell
+		activate
+	end tell
+end run
+
+on zero_pad(value, string_length)
+	set string_zeroes to ""
+	set digits_to_pad to string_length - (length of (value as string))
+	if digits_to_pad &gt; 0 then
+		repeat digits_to_pad times
+			set string_zeroes to string_zeroes &amp; "0" as string
+		end repeat
+	end if
+	set padded_value to string_zeroes &amp; value as string
+	return padded_value
+end zero_pad
+
+on currentDate()
+	set now to (current date)
+	
+	set result to (year of now as integer) as string
+	set result to result &amp; "-"
+	set result to result &amp; zero_pad(month of now as integer, 2)
+	set result to result &amp; "-"
+	set result to result &amp; zero_pad(day of now as integer, 2)
+	set result to result &amp; " "
+	set result to result &amp; zero_pad(hours of now as integer, 2)
+	set result to result &amp; ":"
+	set result to result &amp; zero_pad(minutes of now as integer, 2)
+	set result to result &amp; ":"
+	set result to result &amp; zero_pad(seconds of now as integer, 2)
+	
+	return result
+end currentDate
+					</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
